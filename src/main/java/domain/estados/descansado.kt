@@ -1,4 +1,7 @@
-package domain
+package domain.estados
+
+import domain.gary
+import domain.juguetes.juguete
 
 object descansado : estado {
     private var cantidadDeVecesJugadas : Int = 0
@@ -8,19 +11,19 @@ object descansado : estado {
     }
 
     override fun jugarCon(unjuguete: juguete, gary: gary) {
-        this.cantidadDeVecesJugadas++
+        cantidadDeVecesJugadas++
         unjuguete.jugarCon(gary)
         verificarCansancioDe(gary)
     }
 
     private fun verificarCansancioDe(gary: gary){
-        if (this.cantidadDeVecesJugadas >= 5) {
-            gary.setEstado(cansado)
+        if (cantidadDeVecesJugadas >= 5) {
+            domain.gary.setEstado(cansado)
             resetearContador()
         }
     }
 
     private fun resetearContador(){
-        this.cantidadDeVecesJugadas = 0
+        cantidadDeVecesJugadas = 0
     }
 }

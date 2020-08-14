@@ -1,5 +1,12 @@
 package domain
 
+import domain.comidas.comestible
+import domain.estados.descansado
+import domain.estados.estado
+import domain.juguetes.juguete
+import domain.lugares.lugarVisitable
+import domain.prendas.prendaAbrigable
+
 object gary {
     private var color : String? = "Naranja"
     private var hambre : Int = 10

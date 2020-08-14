@@ -1,5 +1,12 @@
 package domain
 
+import domain.juguetes.raton
+import domain.lugares.casaDelVecino
+import domain.lugares.cocina
+import domain.lugares.habitacion
+import domain.prendas.buzo
+import domain.prendas.capa
+import domain.prendas.chaquetaDeJean
 import org.junit.Test
 import org.junit.Assert.*
 
@@ -22,8 +29,8 @@ class GaryTest {
     }
 
     @Test
-    fun garyAbrigate() {
-        gary.abrigateCon(buso)
+    fun garySeAbriga() {
+        gary.abrigateCon(buzo)
         assertEquals(37.5, gary.getTemperaturaCorporal(), 0.0)
 
         gary.sacateElAbrigo()
@@ -43,13 +50,13 @@ class GaryTest {
     }
 
     @Test
-    fun garyJugaConRaton() {
+    fun garyJuegaConRaton() {
         gary.jugarCon(raton)
         assertEquals(10, gary.getDiversion())
     }
 
     @Test
-    fun garyJugaConRatonYAburrite(){
+    fun garyJuegaConRatonYSeAburre(){
         gary.jugarCon(raton)
         gary.jugarCon(raton)
         gary.jugarCon(raton)
@@ -60,7 +67,7 @@ class GaryTest {
     }
 
     @Test
-    fun garyJugaLuegoDesaburrite() {
+    fun garyJuegaYSeDesaburre() {
         gary.jugarCon(raton)
         assertEquals(50, gary.getDiversion())
 

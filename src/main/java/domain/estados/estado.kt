@@ -1,4 +1,7 @@
-package domain
+package domain.estados
+
+import domain.gary
+import domain.juguetes.juguete
 
 interface estado {
     fun jugarCon(unjuguete: juguete, gary : gary)

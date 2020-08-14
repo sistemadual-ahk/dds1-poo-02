@@ -51,7 +51,7 @@ Este término hace referencia a que un objeto no debería saber cómo está impl
 Tampoco se debería dar a conocer el estado interno de un objeto. Un objeto A no debería acceder directamente a los atributos de un objeto B, porque si lo hiciera de esa forma, A estaría conociendo exactamente las cosas que tiene B.
 Las formas posibles interactuar con un objeto deberían ser acotadas y explícitas y es por eso que el objeto debe definir qué mensajes se deberían utilizar para interactuar con él.
 
-Pero... ¿por qué existe este concepto? Supongamos que estamos modelando un objeto A y los objetos B, C y D que lo conocen y usan. Todos los objetos que conocen a A acceden a un atributo de él de forma directa. ¿Qué pasa si necesito hacer un cambio en A que involucra tocar sus atributos? Mis objetos B, C y D se verían impactados en sus implementaciones por un cambio en la implementación de A. Cuando sucede esto, se dice que los objetos están** acoplados**.
+Pero... ¿por qué existe este concepto? Supongamos que estamos modelando un objeto A y los objetos B, C y D que lo conocen y usan. Todos los objetos que conocen a A acceden a un atributo de él de forma directa. ¿Qué pasa si necesito hacer un cambio en A que involucra tocar sus atributos? Mis objetos B, C y D se verían impactados en sus implementaciones por un cambio en la implementación de A. Cuando sucede esto, se dice que los objetos están **acoplados**.
 
 ¿Cómo lo aplico?
 - Utiliando los ***accessors*** que nos provee el lenguaje de programación en el que estemos codeando. ¿Qué son los accessors? Los accessors son definiciones que acompañan a los atributos de los objetos para especificar si los mismos serán *privados*, *públicos* o *protegidos*.  Si un atributo está anotado como privado, solamente el objeto dueño de ese atributo podrá acceder a él. En cambio, si está anotado como público, cualquier otro objeto podrá tener acceso a él. Por el momento no nos interesa el accessor protegido.
@@ -345,12 +345,12 @@ Vamos a hacer que Gary visite los tres lugares en el mismo test. Verifiquemos si
 ### Quinta iteración
 #### Dominio
 Gary es un gato muy friolento y cuando está medio fresco quiere que lo abriguen. Su dueño le ha comprado algunos abrigos:
-- *Buso*: cuando Gary se pone un buso, su temperatura corporal aumenta en medio grado Celsius.
+- *Buzo*: cuando Gary se pone un buzo, su temperatura corporal aumenta en medio grado Celsius.
 - *Capa*: aumenta la temperatura corporal en la décima parte de un grado Celsius.
 - *Chaqueta de jean*: aumenta la temperatura corporal en la cuarta parte de un grado Celsius.
 
 #### Diseño en objetos
-Pensemos, primero que nada, en lo que podríamos decirle a Gary: `gary.abrigateCon(buso)` podría ser una línea válida, ¿no? Al igual que `gary.sacateElAbrigo()`.
+Pensemos, primero que nada, en lo que podríamos decirle a Gary: `gary.abrigateCon(buzo)` podría ser una línea válida, ¿no? Al igual que `gary.sacateElAbrigo()`.
 
 Como cada prenda influye en el gato de una forma distinta, podríamos pensar a cada una de ellas como un objeto distinto. De esta forma, volvemos a caer en un problema similar al anterior: `fun abrigateCon(unaPrenda : ???)`. ¿Cómo lo resolvemos? ¡Interface! Podríamos llamarla `prendaAbrigable` y debería definir, por lo menos, dos mensajes: `abrigarA(gary : gary)` y `quitateDe(gary : gary)`
 
@@ -391,7 +391,7 @@ Para tener en cuenta:
 Ahora definamos nuestras prendas.
 
 ```kotlin
-object buso : prendaAbrigable {
+object buzo : prendaAbrigable {
 
     override fun abrigarA(gary: gary) {
         gary.aumentarTemperaturaCorporalEn(0.5)
@@ -453,7 +453,7 @@ Probaremos a todos los abrigos en el mismo test.
 ```kotlin
 @Test
     fun garyAbrigate() {
-        gary.abrigateCon(buso)
+        gary.abrigateCon(buzo)
         assertEquals(37.5, gary.getTemperaturaCorporal())
 
         gary.sacateElAbrigo()

@@ -1,4 +1,4 @@
-package domain
+package domain.lugares
 
 import kotlin.math.abs
 
@@ -8,19 +8,19 @@ object casaDelVecino : lugarVisitable {
     private var posicionY : Int = 5
 
     fun cantidadDeVecesVisitado() : Int{
-        return this.cantidadVisitasGary
+        return cantidadVisitasGary
     }
 
     override fun getPosicionX(): Int {
-        return this.posicionX
+        return posicionX
     }
 
     override fun getPosiconY(): Int {
-        return this.posicionY
+        return posicionY
     }
 
     override fun serVisitadoPorGary() {
-        this.cantidadVisitasGary++;
+        cantidadVisitasGary++;
     }
 
     fun distanciaAbsolutaEntre(unPunto : Int, otroPunto: Int) : Int{
@@ -28,10 +28,10 @@ object casaDelVecino : lugarVisitable {
     }
 
     override fun distanciaXHacia(otroPunto: Int) : Int {
-        return this.distanciaAbsolutaEntre(this.posicionX, otroPunto)
+        return distanciaAbsolutaEntre(posicionX, otroPunto)
     }
 
     override fun distanciaYHacia(otroPunto: Int) : Int {
-        return this.distanciaAbsolutaEntre(this.posicionY, otroPunto)
+        return distanciaAbsolutaEntre(posicionY, otroPunto)
     }
 }

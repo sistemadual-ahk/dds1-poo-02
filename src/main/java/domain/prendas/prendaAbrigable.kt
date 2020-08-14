@@ -1,4 +1,6 @@
-package domain
+package domain.prendas
+
+import domain.gary
 
 interface prendaAbrigable {
     fun abrigarA(gary : gary)
